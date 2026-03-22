@@ -8,8 +8,10 @@ import com.thgcastro.bffagendador.business.dto.in.UsuarioDTORequest;
 import com.thgcastro.bffagendador.business.dto.out.EnderecoDTOResponse;
 import com.thgcastro.bffagendador.business.dto.out.TelefoneDTOResponse;
 import com.thgcastro.bffagendador.business.dto.out.UsuarioDTOResponse;
+import com.thgcastro.bffagendador.infrastructure.security.SecurityConfig;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/usuario")
 @RequiredArgsConstructor
 @Tag(name = "Usuário", description = "Cadastro e login de usuários")
+@SecurityRequirement(name = SecurityConfig.SECURITY_SCHEME)
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
